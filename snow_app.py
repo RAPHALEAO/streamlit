@@ -29,4 +29,5 @@ rows = run_query("SELECT * FROM LOG LIMIT 1")
 df = pd.DataFrame(rows)
 
 # Print results.
+st.header("Logs de execução das procedures no Snowflake")
 st.write(df)
