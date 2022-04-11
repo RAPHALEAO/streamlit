@@ -1,5 +1,6 @@
 import streamlit as st
 import snowflake.connector
+import pandas as pd
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
@@ -25,6 +26,7 @@ run_query("USE SCHEMA LOG")
 
 rows = run_query("SELECT * FROM LOG LIMIT 1")
 
+df = pd.DataFrame(rows)
+
 # Print results.
-for row in rows:
-    st.write(f"{row[0]}")
+print(df)
