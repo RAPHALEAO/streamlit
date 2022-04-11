@@ -18,7 +18,7 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("SELECT * from LOG;")
+rows = run_query("SELECT current_version()")
 
 # Print results.
 for row in rows:
