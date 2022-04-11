@@ -33,9 +33,9 @@ st.header("Logs de execução das procedures no Snowflake")
 st.subheader("últimos 10")
 st.write(df)
 
-rows = run_query("SELECT * FROM MONITORAMENTO.LOG.LOG_VERIFICA_MACHADO")
+rows2 = run_query("SELECT * FROM LOG_VERIFICA_MACHADO")
 
-df2 = pd.Dataframe(rows)
+df2 = pd.Dataframe(rows2)
 
 st.header("Verifica Machado")
 st.write(df2)
