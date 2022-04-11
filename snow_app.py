@@ -32,3 +32,8 @@ df = pd.DataFrame(rows)
 st.header("Logs de execução das procedures no Snowflake")
 st.subheader("últimos 10")
 st.write(df)
+
+df2 = pd.Dataframe(run_query("SELECT * FROM MONITORAMENTO.LOG.LOG_VERIFICA_MACHADO"))
+
+st.header("Verifica Machado")
+st.write(df2)
