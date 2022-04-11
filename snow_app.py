@@ -24,10 +24,11 @@ run_query("USE DATABASE MONITORAMENTO")
 run_query("USE WAREHOUSE WH_PBI")
 run_query("USE SCHEMA LOG")
 
-rows = run_query("SELECT * FROM LOG LIMIT 1")
+rows = run_query("SELECT * FROM LOG ORDER BY ID DESC LIMIT 10")
 
 df = pd.DataFrame(rows)
 
 # Print results.
 st.header("Logs de execução das procedures no Snowflake")
+st.subheader("últimos 10")
 st.write(df)
