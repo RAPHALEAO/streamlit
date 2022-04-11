@@ -29,4 +29,4 @@ rows = run_query("SELECT * FROM LOG LIMIT 1")
 df = pd.DataFrame(rows)
 
 # Print results.
-print(df)
+ st.write(df)
