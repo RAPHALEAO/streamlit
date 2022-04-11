@@ -17,8 +17,13 @@ def run_query(query):
     with conn.cursor() as cur:
         cur.execute(query)
         return cur.fetchall()
+    
+run_query("USE ROLE MONITORAMENTO")   
+run_query("USE DATABASE MONITORAMENTO")
+run_query("USE WAREHOUSE WHDEV")
+run_query("USE SCHEMA LOG")
 
-rows = run_query("SELECT current_version()")
+rows = run_query("SELECT * FROM LOG LIMIT 1")
 
 # Print results.
 for row in rows:
