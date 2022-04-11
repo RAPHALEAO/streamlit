@@ -24,7 +24,7 @@ run_query("USE WAREHOUSE WH_PBI")
 run_query("USE SCHEMA LOG")
 
 rows = run_query("SELECT * FROM LOG LIMIT 1")
-cur.
+
 # Print results.
 for row in rows:
     st.write(f"{row[0]}")
