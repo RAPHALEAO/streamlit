@@ -35,7 +35,7 @@ st.write(df)
 
 rows2 = run_query("SELECT * FROM LOG_VERIFICA_MACHADO")
 
-df2 = pd.Dataframe(rows2)
+df2 = pd.DataFrame(rows2)
 
 st.header("Verifica Machado")
 st.write(df2)
