@@ -38,7 +38,7 @@ if st.checkbox('Show raw data'):
 
 st.subheader("Graficozinho")
 
-eixox= np.array(df[0])
+eixox= np.array(df[1])
 #mt.plot(eixox)
 
 st.write(eixox)
