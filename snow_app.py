@@ -58,3 +58,4 @@ fig = px.bar(x = df2[1],
             orientation='v', title=" Qtd. Pedidos por ano(Entre 2016 e 2021)",
              labels={'x':'Ano','y':'Qtd. Pedidos'})
 st.plotly_chart(fig)
+st.caption('* Dados não calculados!')
