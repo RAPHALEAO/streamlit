@@ -2,7 +2,7 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as mt
+import matplotlib.pyplot as plt
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
@@ -38,8 +38,52 @@ if st.checkbox('Show raw data'):
 
 st.subheader("Graficozinho")
 
-eixox= np.array(df[1])
-eixoy= np.array(df[0])
-mt.plot(eixox)
+# ugly hack to embed fonts
+matplotlib.rc("pdf", fonttype=42)
 
-#st.write(eixox,eixoy)
+edgecolor = "black"
+
+bar_scale = 0.8
+
+plt.figure(figsize=(14, 4))
+
+things = [
+    {
+        "label": "Quantidade",
+        "values": df[0],
+        "color": "#00ff00",
+    },
+    {
+        "label": "Ano",
+        "values": df[1],
+        "color": "#dddddd",
+    },
+    {
+        "label": "Indústria",
+        "values": df[2],
+        "color": "#afafaf",
+    },
+]
+
+group_labels = ["Group #1", "Group #2", "Group #3", "Group #4", "Group #5"]
+
+for i, data in enumerate(things):
+    x = 1 + np.arange(len(group_labels)) + (i - (len(things) - 1) / 2) * bar_scale / len(things)
+
+    plt.bar(
+        x=x,
+        height=data["values"],
+        width=bar_scale / len(things),
+        label=data["label"],
+        color=data["color"],
+        edgecolor=edgecolor,
+        linewidth=0.5,
+    )
+
+plt.ticklabel_format(axis="y", style="sci", scilimits=(0, 0), useMathText=True)
+plt.xticks(1 + np.arange(len(group_labels)), group_labels)
+plt.xlim([0.5, len(group_labels) + 0.5])
+plt.ylabel("Goodness")
+plt.legend()
+plt.tight_layout()
+plt.show()
