@@ -21,7 +21,7 @@ def run_query(query):
     
 run_query("USE ROLE MONITORAMENTO")   
 run_query("USE DATABASE MONITORAMENTO")
-run_query("USE WAREHOUSE WH_PBI")
+run_query("USE WAREHOUSE WHDEV")
 run_query("USE SCHEMA LOG")
 
 rows = run_query("SELECT * FROM LOG ORDER BY ID DESC LIMIT 10")
