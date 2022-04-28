@@ -29,14 +29,11 @@ rows = run_query("SELECT COUNT(1) AS QTDE, TO_VARCHAR(MONTH(DATAHORA)) AS MONTH,
 
 df = pd.DataFrame(rows)
 
+if st.checkbox('Show raw data'):
+    st.subheader('Raw data')
+    st.write(df)
+
 # Print results.
-st.header("Logs de execução das procedures no Snowflake")
-st.subheader("últimos 10")
+st.header("EVOLUÇÃO DE PEDIDOS DO TRADE")
 st.write(df)
 
-rows2 = run_query("SELECT * FROM LOG_VERIFICA_MACHADO")
-
-df2 = pd.DataFrame(rows2)
-
-st.header("Verifica Machado")
-st.write(df2)
