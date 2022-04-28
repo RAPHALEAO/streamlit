@@ -29,11 +29,6 @@ rows = run_query("SELECT COUNT(1) AS QTDE, ID_DATABASE FROM PEDIDOS GROUP BY ID_
 
 df = pd.DataFrame(rows)
 
-st.subheader('Number of pickups by hour')
-hist_values = np.histogram(df[1].dt.hour, bins=24, range=(0,24))[0]
-st.bar_chart(hist_values)
-
-
 # Print results.
 st.header("Logs de execução das procedures no Snowflake")
 st.subheader("últimos 10")
