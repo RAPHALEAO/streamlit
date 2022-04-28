@@ -39,11 +39,22 @@ if st.checkbox('Show raw data'):
     
     st.write(df)
 
-st.subheader("Graficozinho")
+st.subheader("Visual")
 
-# Valores ausentes
+# Qtd. Pedidos 2021
 fig = px.bar(x = df[2],
             y = df[0],
-            orientation='v', title=" Valores faltantes ",
+            orientation='v', title=" Qtd. Pedidos 2021 x Indústria",
              labels={'x':'Indústria','y':'Qtd. Pedidos'})
+st.plotly_chart(fig)
+
+rows2 = run_query("SELECT COUNT(1) AS QTDE, TO_VARCHAR(YEAR(DATAHORA)) AS YEAR FROM PEDIDOS WHERE YEAR(DATAHORA) BETWEEN '2016' AND '2021' GROUP BY YEAR(DATAHORA) ORDER BY YEAR")
+
+df2 = pd.DataFrame(rows2)
+
+# Qtd. Pedidos 2021
+fig = px.bar(x = df2[1],
+            y = df2[0],
+            orientation='v', title=" Qtd. Pedidos por ano(Entre 2016 e 2021)",
+             labels={'x':'Ano','y':'Qtd. Pedidos'})
 st.plotly_chart(fig)
