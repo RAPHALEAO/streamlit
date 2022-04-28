@@ -39,4 +39,4 @@ if st.checkbox('Show raw data'):
 
 st.subheader("Graficozinho")
 
-ax = df.plot.bar(x=[2], rot=0)
+ax = df.plot.bar(x="teste", rot=0)
