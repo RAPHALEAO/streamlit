@@ -1,7 +1,7 @@
 import streamlit as st
 import snowflake.connector
 import pandas as pd
-import plotly.express as pp
+import plotly.figure_factory as ff
 import numpy as np
 
 
@@ -37,7 +37,19 @@ if st.checkbox('Show raw data'):
     
     st.write(df)
 
+# Add histogram data
+x1 = np.random.randn(200) - 2
+x2 = np.random.randn(200)
+x3 = np.random.randn(200) + 2
+
+# Group data together
+hist_data = [x1, x2, x3]
+
+group_labels = ['Group 1', 'Group 2', 'Group 3']
+
 # Create distplot with custom bin_size
-fig = pp.bar(df)
+fig = ff.create_distplot(
+         hist_data, group_labels, bin_size=[.1, .25, .5])
+
 # Plot!
 st.plotly_chart(fig, use_container_width=True)
