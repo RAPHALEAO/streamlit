@@ -44,6 +44,6 @@ st.subheader("Graficozinho")
 # Valores ausentes
 fig = px.bar(x = df[2],
             y = df[0],
-            orientation='h', title=" Valores faltantes ",
-             labels={'x':'Quantidade','y':'Dados'})
+            orientation='v', title=" Valores faltantes ",
+             labels={'x':'Indústria','y':'Qtd. Pedidos'})
 st.plotly_chart(fig)
