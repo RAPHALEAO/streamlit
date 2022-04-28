@@ -36,8 +36,8 @@ if st.checkbox('Show raw data'):
     
     st.write(df)
 
-arr = np.random.normal(1, 1, size=100)
-fig, ax = plt.subplots()
-ax.hist(arr, bins=20)
+chart_data = pd.DataFrame(
+     np.random.randn(50, 3),
+     columns=["a", "b", "c"])
 
-st.pyplot(fig)
+st.bar_chart(chart_data)
