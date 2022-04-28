@@ -35,7 +35,7 @@ rows = run_query("SELECT COUNT(1) AS QTDE, TO_VARCHAR(YEAR(DATAHORA)) AS YEAR, I
 
 df = pd.DataFrame(rows)
 
-st.header("EVOLUÇÃO DE PEDIDOS DO TRADE")
+st.header("EVOLUÇÃO DE PEDIDOS DO TRADE ! Baratona!")
 
 if st.checkbox('Show raw data'):
     
