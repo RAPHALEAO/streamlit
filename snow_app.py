@@ -38,5 +38,6 @@ if st.checkbox('Show raw data'):
     st.write(df)
 
 st.subheader("Graficozinho")
-    
+
+df = pd.DataFrame({'lab':[0], 'val':[1]})
 ax = df.plot.bar(x='lab', y='val', rot=0)
