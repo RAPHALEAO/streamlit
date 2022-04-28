@@ -41,6 +41,6 @@ st.subheader("Graficozinho")
 
 chart_data = pd.DataFrame(
      np.random.randn(50, 3),
-     columns=[df[0], df[1], df[2]])
+     columns=["a", "b", "c"])
 
 st.bar_chart(chart_data)
