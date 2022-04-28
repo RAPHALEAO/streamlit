@@ -2,8 +2,7 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 import numpy as np
-import plotly.express as px
-import plotly.graph_objects as go
+import matplotlib.pyplot as mt
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
@@ -39,6 +38,5 @@ if st.checkbox('Show raw data'):
 
 st.subheader("Graficozinho")
 
-chart_data = df
+mt.plot(df[0], df[1])
 
-st.bar_chart(chart_data)
