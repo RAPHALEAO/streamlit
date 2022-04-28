@@ -43,6 +43,7 @@ x = df[1]
 
 fig = go.Figure()
 fig.add_trace(go.Bar(x=x, y=df[0]))
+fig.add_trace(go.Bar(x=x, y=df[2]))
 
 fig.update_layout(barmode='relative', title_text='Relative Barmode')
 fig.show()
