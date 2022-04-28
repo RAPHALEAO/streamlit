@@ -36,8 +36,7 @@ if st.checkbox('Show raw data'):
     
     st.write(df)
 
-st.subheader("graficozinho")
+st.subheader("Graficozinho")
     
-data_canada = px.data.gapminder().query("country == 'Canada'")
-fig = px.bar(data_canada, x='year', y='pop')
+fig = px.bar(df, x='quantidade', y='Mês')
 fig.show()
