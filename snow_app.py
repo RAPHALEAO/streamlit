@@ -2,6 +2,7 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 import numpy as np
+import plotly.figure_factory as ff
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
@@ -34,9 +35,20 @@ st.header("EVOLUÇÃO DE PEDIDOS DO TRADE")
 if st.checkbox('Show raw data'):
     
     st.write(df)
+    
+# Add histogram data
+x1 = np.random.randn(200) - 2
+x2 = np.random.randn(200)
+x3 = np.random.randn(200) + 2
 
-chart_data = pd.DataFrame(
-     np.random.randn(50, 3),
-     columns=[df[0], df[1], df[2], df[3]])
+# Group data together
+hist_data = [x1, x2, x3]
 
-st.bar_chart(chart_data)
+group_labels = ['Group 1', 'Group 2', 'Group 3']
+
+# Create distplot with custom bin_size
+fig = ff.create_distplot(
+         hist_data, group_labels, bin_size=[.1, .25, .5])
+
+# Plot!
+st.plotly_chart(fig, use_container_width=True)
