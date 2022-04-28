@@ -1,6 +1,7 @@
 import streamlit as st
 import snowflake.connector
 import pandas as pd
+import numpy as np
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
@@ -27,6 +28,11 @@ run_query("USE SCHEMA LOG")
 rows = run_query("SELECT * FROM LOG ORDER BY ID DESC LIMIT 10")
 
 df = pd.DataFrame(rows)
+
+st.subheader('Number of pickups by hour')
+hist_values = np.histogram(df[1].dt.hour, bins=24, range=(0,24))[0]
+st.bar_chart(hist_values)
+
 
 # Print results.
 st.header("Logs de execução das procedures no Snowflake")
