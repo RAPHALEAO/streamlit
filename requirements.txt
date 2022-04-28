@@ -1,4 +1,4 @@
 snowflake-connector-python==2.7.6
 matplotlib==3.5.1
-scipy==1.8.0
+scipy
 plotly==5.7.0
