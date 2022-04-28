@@ -35,11 +35,13 @@ st.header("EVOLUÇÃO DE PEDIDOS DO TRADE")
 if st.checkbox('Show raw data'):
     
     st.write(df)
+
+st.subheader("graficozinho")
     
 # Add histogram data
-x1 = np.random.randn(200) - 2
-x2 = np.random.randn(200)
-x3 = np.random.randn(200) + 2
+x1 = df[0]
+x2 = df[1]
+x3 = df[2]
 
 # Group data together
 hist_data = [x1, x2, x3]
