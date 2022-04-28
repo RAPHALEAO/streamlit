@@ -88,3 +88,5 @@ plt.ylabel("Goodness")
 plt.legend()
 plt.tight_layout()
 plt.show()
+
+st.write(things)
