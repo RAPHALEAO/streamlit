@@ -29,7 +29,9 @@ rows = run_query("SELECT COUNT(1) AS QTDE, TO_VARCHAR(MONTH(DATAHORA)) AS MONTH,
 
 df = pd.DataFrame(rows)
 
+st.header("EVOLUÇÃO DE PEDIDOS DO TRADE")
+
 if st.checkbox('Show raw data'):
-    st.header("EVOLUÇÃO DE PEDIDOS DO TRADE")
+    
     st.write(df)
 
