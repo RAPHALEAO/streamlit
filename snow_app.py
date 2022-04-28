@@ -36,5 +36,5 @@ if st.checkbox('Show raw data'):
     st.write(df)
 
 st.subheader('Graficozinho')
-hist_values = np.histogram(df[2], bins=11, range=(2011,2022))[0]
+hist_values = np.histogram(df[2].dt, bins=auto, range=(2011,2022), freq='Y')[0]
 st.bar_chart(hist_values)
