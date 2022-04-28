@@ -42,20 +42,8 @@ if st.checkbox('Show raw data'):
 st.subheader("Graficozinho")
 
 # Valores ausentes
-fig = px.bar(x = df[0],
-            y = df[1],
+fig = px.bar(x = df[1],
+            y = df[2],
             orientation='h', title=" Valores faltantes ",
              labels={'x':'Quantidade','y':'Dados'})
-st.plotly_chart(fig)
-
-#Tipos de variaveis
-fig = px.bar(x = [6,5],
-            y = ['Categóricas','Numéricas'],
-            orientation='h', title=" Tipos de dados ",
-             labels={'x':'Quantidade','y':'Variaves'},width=800, height=400)
-st.plotly_chart(fig)
-
-# Sobreviventes
-fig = px.bar(x = ['Sobreviveu (1)' , 'Não Sobreviveu (0)'], y = [342,549],
-            title=" Sobreviventes ",labels={'y':'Quantidade','x':'Dado'})
 st.plotly_chart(fig)
