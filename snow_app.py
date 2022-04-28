@@ -3,6 +3,7 @@ import snowflake.connector
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import plotly.graph_objects as go
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
@@ -26,7 +27,7 @@ run_query("USE DATABASE TRADE")
 run_query("USE WAREHOUSE WH_PBI")
 run_query("USE SCHEMA CURATED_DATA")
 
-rows = run_query("SELECT COUNT(1) AS QTDE, TO_VARCHAR(MONTH(DATAHORA)) AS MONTH, TO_VARCHAR(YEAR(DATAHORA)) AS YEAR, ID_DATABASE FROM PEDIDOS GROUP BY ID_DATABASE, MONTH(DATAHORA), YEAR(DATAHORA) ORDER BY YEAR, MONTH")
+rows = run_query("SELECT COUNT(1) AS QTDE, TO_VARCHAR(YEAR(DATAHORA)) AS YEAR, ID_DATABASE FROM PEDIDOS GROUP BY ID_DATABASE, YEAR(DATAHORA) ORDER BY YEAR")
 
 df = pd.DataFrame(rows)
 
@@ -38,5 +39,13 @@ if st.checkbox('Show raw data'):
 
 st.subheader("Graficozinho")
     
-fig = px.bar(df, x="QTDE", y=["MONTH","YEAR","ID_DATABASE"])
+x = [1, 2, 3, 4]
+
+fig = go.Figure()
+fig.add_trace(go.Bar(x=x, y=[1, 4, 9, 16]))
+fig.add_trace(go.Bar(x=x, y=[6, -8, -4.5, 8]))
+fig.add_trace(go.Bar(x=x, y=[-15, -3, 4.5, -8]))
+fig.add_trace(go.Bar(x=x, y=[-1, 3, -3, -4]))
+
+fig.update_layout(barmode='relative', title_text='Relative Barmode')
 fig.show()
