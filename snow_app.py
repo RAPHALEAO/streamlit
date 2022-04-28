@@ -39,5 +39,5 @@ if st.checkbox('Show raw data'):
 
 st.subheader("Graficozinho")
 
-df = pd.DataFrame({'lab':[0], 'val':[1]})
-ax = df.plot.bar(x='lab', y='val', rot=0)
+df2 = pd.DataFrame({'QTDE':df[0], 'ANO':df[1]})
+ax = df2.plot.bar(x='QTDE', y='ANO', rot=0)
