@@ -37,6 +37,6 @@ if st.checkbox('Show raw data'):
 
 chart_data = pd.DataFrame(
      np.random.randn(50, 3),
-     columns=[df.[0], df.[1], df.[2], df.[3]])
+     columns=[df[0], df[1], df[2], df[3]])
 
 st.bar_chart(chart_data)
