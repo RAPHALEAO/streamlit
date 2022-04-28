@@ -2,7 +2,7 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 import numpy as np
-import plotly.figure_factory as ff
+import plotly.express as px
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
@@ -38,19 +38,6 @@ if st.checkbox('Show raw data'):
 
 st.subheader("graficozinho")
     
-# Add histogram data
-x1 = df[0]
-x2 = df[1]
-x3 = df[2]
-
-# Group data together
-hist_data = [x1, x2, x3]
-
-group_labels = ['Quantidade', 'Mês', 'Ano']
-
-# Create distplot with custom bin_size
-fig = ff.create_distplot(
-         hist_data, group_labels)
-
-# Plot!
-st.plotly_chart(fig, use_container_width=True)
+data_canada = px.data.gapminder().query("country == 'Canada'")
+fig = px.bar(data_canada, x='year', y='pop')
+fig.show()
