@@ -39,54 +39,30 @@ if st.checkbox('Show raw data'):
 
 st.subheader("Graficozinho")
 
-# ugly hack to embed fonts
-matplotlib.rc("pdf", fonttype=42)
+# Valores ausentes
+fig = px.bar(x = [0,0,0,0,0,177,0,0,0,0,687,2],
+            y = ['PassengerId','Survived','Pclass','Name' ,
+     'Sex','Age','SibSp','Parch','Ticket','Fare','Cabin','Embarked'],
+            orientation='h', title=" Valores faltantes ",
+             labels={'x':'Quantidade','y':'Dados'})
+st.plotly_chart(fig)
 
-edgecolor = "black"
+#Tipos de variaveis
+fig = px.bar(x = [6,5],
+            y = ['Categóricas','Numéricas'],
+            orientation='h', title=" Tipos de dados ",
+             labels={'x':'Quantidade','y':'Variaves'},width=800, height=400)
+st.plotly_chart(fig)
 
-bar_scale = 0.8
+# Grafico de correlção
+fig, ax = plt.subplots(figsize=(5, 5))
+sns.heatmap(train.corr(), annot=True, cmap='Blues')
+ax.set_title('Correlação dos dados')
+fig.tight_layout()
+st.pyplot(fig)
 
-plt.figure(figsize=(14, 4))
 
-things = [
-    {
-        "label": "Quantidade",
-        "values": df[0],
-        "color": "#00ff00",
-    },
-    {
-        "label": "Ano",
-        "values": df[1],
-        "color": "#dddddd",
-    },
-    {
-        "label": "Indústria",
-        "values": df[2],
-        "color": "#afafaf",
-    },
-]
-
-group_labels = ["Group #1", "Group #2", "Group #3", "Group #4", "Group #5"]
-
-for i, data in enumerate(things):
-    x = 1 + np.arange(len(group_labels)) + (i - (len(things) - 1) / 2) * bar_scale / len(things)
-
-    plt.bar(
-        x=x,
-        height=data["values"],
-        width=bar_scale / len(things),
-        label=data["label"],
-        color=data["color"],
-        edgecolor=edgecolor,
-        linewidth=0.5,
-    )
-
-plt.ticklabel_format(axis="y", style="sci", scilimits=(0, 0), useMathText=True)
-plt.xticks(1 + np.arange(len(group_labels)), group_labels)
-plt.xlim([0.5, len(group_labels) + 0.5])
-plt.ylabel("Goodness")
-plt.legend()
-plt.tight_layout()
-plt.show()
-
-st.write(things)
+# Sobreviventes
+fig = px.bar(x = ['Sobreviveu (1)' , 'Não Sobreviveu (0)'], y = [342,549],
+            title=" Sobreviventes ",labels={'y':'Quantidade','x':'Dado'})
+st.plotly_chart(fig)
