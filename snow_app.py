@@ -39,8 +39,6 @@ if st.checkbox('Show raw data'):
 
 st.subheader("Graficozinho")
 
-chart_data = pd.DataFrame(
-     np.random.randn(50, 3),
-     columns=["a", "b", "c"])
+chart_data = df
 
 st.bar_chart(chart_data)
