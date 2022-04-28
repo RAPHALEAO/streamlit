@@ -42,9 +42,8 @@ if st.checkbox('Show raw data'):
 st.subheader("Graficozinho")
 
 # Valores ausentes
-fig = px.bar(x = [0,0,0,0,0,177,0,0,0,0,687,2],
-            y = ['PassengerId','Survived','Pclass','Name' ,
-     'Sex','Age','SibSp','Parch','Ticket','Fare','Cabin','Embarked'],
+fig = px.bar(x = df[0],
+            y = df[1],
             orientation='h', title=" Valores faltantes ",
              labels={'x':'Quantidade','y':'Dados'})
 st.plotly_chart(fig)
