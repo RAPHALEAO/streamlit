@@ -41,3 +41,4 @@ st.subheader("Graficozinho")
 eixox= np.array(df[0])
 #mt.plot(eixox)
 
+st.write(eixox)
