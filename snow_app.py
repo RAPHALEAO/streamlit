@@ -38,5 +38,5 @@ if st.checkbox('Show raw data'):
 
 st.subheader("Graficozinho")
     
-fig = px.bar(df, x='quantidade', y='Mês')
+fig = px.bar(df, x="QTDE", y=["MONTH","YEAR","ID_DATABASE"])
 fig.show()
