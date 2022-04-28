@@ -56,14 +56,6 @@ fig = px.bar(x = [6,5],
              labels={'x':'Quantidade','y':'Variaves'},width=800, height=400)
 st.plotly_chart(fig)
 
-# Grafico de correlção
-fig, ax = plt.subplots(figsize=(5, 5))
-sns.heatmap(train.corr(), annot=True, cmap='Blues')
-ax.set_title('Correlação dos dados')
-fig.tight_layout()
-st.pyplot(fig)
-
-
 # Sobreviventes
 fig = px.bar(x = ['Sobreviveu (1)' , 'Não Sobreviveu (0)'], y = [342,549],
             title=" Sobreviventes ",labels={'y':'Quantidade','x':'Dado'})
