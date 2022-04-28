@@ -21,11 +21,11 @@ def run_query(query):
         return cur.fetchall()
     
 run_query("USE ROLE MONITORAMENTO")   
-run_query("USE DATABASE MONITORAMENTO")
+run_query("USE DATABASE TRADE")
 run_query("USE WAREHOUSE WH_PBI")
-run_query("USE SCHEMA LOG")
+run_query("USE SCHEMA CURATED_DATA")
 
-rows = run_query("SELECT * FROM LOG ORDER BY ID DESC LIMIT 10")
+rows = run_query("SELECT COUNT(1), ID_DATABASE FROM PEDIDOS GROUP ID_DATABASE")
 
 df = pd.DataFrame(rows)
 
